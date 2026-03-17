@@ -17,6 +17,9 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+  verification: {
+    google: "9iBStzdwwzt1loBPhL8wYHtMSytRPzc-SRcG7_Zepts",
+  },
   title: {
     default:
       "AutoCalc | Calculadoras Gratuitas para Autónomos en España 2026",
