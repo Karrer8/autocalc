@@ -6,6 +6,7 @@ import { useState } from "react";
 
 const links = [
   { href: "/beneficio", label: "Beneficio neto" },
+  { href: "/facturacion", label: "Facturación" },
   { href: "/cuota", label: "Mi tramo" },
   { href: "/tarifa", label: "Tarifa horaria" },
   { href: "/factura", label: "Factura" },

@@ -15,6 +15,7 @@ export default function Footer() {
           </div>
           <nav className="flex gap-4 text-sm text-slate-400">
             <Link href="/beneficio" className="hover:text-slate-600 transition-colors">Beneficio</Link>
+            <Link href="/facturacion" className="hover:text-slate-600 transition-colors">Facturación</Link>
             <Link href="/cuota" className="hover:text-slate-600 transition-colors">Tramos</Link>
             <Link href="/tarifa" className="hover:text-slate-600 transition-colors">Tarifa</Link>
             <Link href="/factura" className="hover:text-slate-600 transition-colors">Factura</Link>

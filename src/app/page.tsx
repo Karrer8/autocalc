@@ -15,6 +15,17 @@ const calculadoras = [
     ),
   },
   {
+    href: "/facturacion",
+    title: "¿Cuánto necesito facturar?",
+    description: "Introduce el sueldo neto que quieres y descubre cuánto debes facturar para conseguirlo.",
+    gradient: "from-cyan-500 to-cyan-600",
+    icon: (
+      <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+      </svg>
+    ),
+  },
+  {
     href: "/cuota",
     title: "¿En qué tramo estoy?",
     description: "Calcula tu tramo de cotización según tus ingresos. Tabla completa de 15 tramos 2026.",
@@ -194,7 +205,7 @@ export default function Home() {
           <h3 className="text-xl font-semibold text-slate-800">¿Qué calculadoras incluye AutoCalc?</h3>
 
           <p className="text-slate-600 leading-relaxed">
-            Nuestra suite incluye cuatro calculadoras diseñadas para cubrir las necesidades más frecuentes de los más de 3,4 millones de autónomos en España. La <strong>calculadora de beneficio neto</strong> te muestra cuánto te queda limpio tras cuota, IVA e IRPF. El <strong>simulador de tramos</strong> te dice en qué tramo de cotización estás y cuánto pagas, con la tabla completa de 15 tramos actualizada a 2026. La <strong>calculadora de tarifa horaria</strong> te ayuda a fijar un precio por hora que cubra todos tus costes. Y el <strong>simulador de factura</strong> te muestra el desglose exacto de IVA y retención IRPF.
+            Nuestra suite incluye cinco calculadoras diseñadas para cubrir las necesidades más frecuentes de los más de 3,4 millones de autónomos en España. La <strong>calculadora de beneficio neto</strong> te muestra cuánto te queda limpio tras cuota, IVA e IRPF. La <strong>calculadora de facturación necesaria</strong> hace el cálculo inverso: te dice cuánto debes facturar para llevarte el sueldo que deseas. El <strong>simulador de tramos</strong> te dice en qué tramo de cotización estás y cuánto pagas, con la tabla completa de 15 tramos actualizada a 2026. La <strong>calculadora de tarifa horaria</strong> te ayuda a fijar un precio por hora que cubra todos tus costes. Y el <strong>simulador de factura</strong> te muestra el desglose exacto de IVA y retención IRPF.
           </p>
 
           <h3 className="text-xl font-semibold text-slate-800">Datos fiscales 2026 actualizados</h3>

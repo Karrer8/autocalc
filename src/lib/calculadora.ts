@@ -88,6 +88,57 @@ export function calcularBeneficio(
   };
 }
 
+// ─── Calculadora 5: ¿Cuánto necesito facturar? (inversa de beneficio) ───
+
+export interface ResultadoFacturacion {
+  facturacionMensual: number;
+  facturacionAnual: number;
+  gastosMensuales: number;
+  rendimientoNetoMensual: number;
+  tramo: Tramo;
+  cuotaSS: number;
+  ivaTrimestral: number;
+  irpfTrimestral: number;
+  beneficioNetoMensual: number;
+}
+
+export function calcularFacturacionNecesaria(
+  beneficioDeseado: number,
+  gastosMensuales: number,
+  opciones: { nuevoAutonomo?: boolean; societario?: boolean } = {}
+): ResultadoFacturacion {
+  // Resolvemos por iteración: la facturación depende de la cuota SS,
+  // que depende del rendimiento neto, que depende de la facturación.
+  // Empezamos con una estimación gruesa y convergemos.
+
+  let facturacion = beneficioDeseado * 1.8; // estimación inicial
+
+  for (let i = 0; i < 50; i++) {
+    const resultado = calcularBeneficio(facturacion, gastosMensuales, opciones);
+    const diferencia = beneficioDeseado - resultado.beneficioNetoMensual;
+
+    if (Math.abs(diferencia) < 0.5) break;
+
+    // Ajustar proporcionalmente
+    facturacion += diferencia * 0.8;
+    if (facturacion < 0) facturacion = 0;
+  }
+
+  const final = calcularBeneficio(facturacion, gastosMensuales, opciones);
+
+  return {
+    facturacionMensual: Math.round(facturacion * 100) / 100,
+    facturacionAnual: Math.round(facturacion * 12 * 100) / 100,
+    gastosMensuales,
+    rendimientoNetoMensual: final.rendimientoNetoMensual,
+    tramo: final.tramo,
+    cuotaSS: final.cuotaSS,
+    ivaTrimestral: final.ivaTrimestral,
+    irpfTrimestral: final.irpfTrimestral,
+    beneficioNetoMensual: final.beneficioNetoMensual,
+  };
+}
+
 // ─── Calculadora 2: ¿En qué tramo estoy? ───
 
 export interface ResultadoTramo {
